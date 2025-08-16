@@ -20,9 +20,11 @@ export async function POST(req: NextRequest) {
       );
     }
   const password = "123456789"
+  const email = "1@gmail.com"
     const user = new User({
       studentId,
       name,
+      email,
       password,
       role: role || 'voter',
       class: className,
