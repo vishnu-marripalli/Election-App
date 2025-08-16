@@ -5,10 +5,6 @@ import NextAuthProvider from '@/components/providers/SessionProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const metadata: Metadata = {
-  title: 'School Election System',
-  description: 'Secure online voting system for school elections',
-};
 
 export default function RootLayout({
   children,
