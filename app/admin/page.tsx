@@ -291,7 +291,7 @@ export default function AdminDashboard() {
                           <p>Student ID: {candidate.userId.studentId} • Class: {candidate.userId.class}</p>
                           <p>Position: {candidate.position}</p>
                           <p>Election: {candidate.electionId.title}</p>
-                          <p className="italic">"{candidate.motto}"</p>
+                          <p className="italic">&quot;{candidate.motto}&quot;</p>
                         </div>
                       </div>
                       <div className="flex items-center gap-2">

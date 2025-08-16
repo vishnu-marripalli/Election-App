@@ -10,7 +10,6 @@ import logo from '@/public/logo.png';
 import Image from 'next/image';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Vote, Users, CheckCircle, Clock, Trophy, Calendar, UserCheck, Sparkles, Award } from 'lucide-react';
-
 interface Voter {
   _id: string;
   studentId: string;
@@ -45,6 +44,7 @@ interface Candidate {
   votes: number;
 }
 
+
 export default function VoterDashboard() {
   const { data: session, status } = useSession();
   const router = useRouter();
@@ -53,10 +53,14 @@ export default function VoterDashboard() {
 
   const [voterData, setVoterData] = useState<Voter | null>(null);
   const [elections, setElections] = useState<Election[]>([]);
-  const [candidates, setCandidates] = useState<{ [key: string]: Candidate[] }>({});
+  const [candidates, setCandidates] = useState<Record<string, Record<string, Candidate[]>>>({});
   const [votedPositions, setVotedPositions] = useState<{ [key: string]: string[] }>({});
   const [loading, setLoading] = useState(true);
   const [voting, setVoting] = useState<{ [key: string]: boolean }>({});
+// A mapping from position name to list of candidates
+const [electionCandidates, setElectionCandidates] = useState<
+  Record<string, Candidate[]>
+>({});
 
   useEffect(() => {
     if (status === "authenticated") {
@@ -291,9 +295,8 @@ export default function VoterDashboard() {
                 {/* Positions */}
                 <div className="grid gap-8">
                   {election.positions.map((position, positionIndex) => {
-                    const positionCandidates = electionCandidates[position] || [];
-                    const hasVoted = userVotedPositions.includes(position);
-
+                   const positionCandidates: Candidate[] = electionCandidates[position] || [];
+  const hasVoted = userVotedPositions.includes(position);
                     return (
                       <Card 
                         key={position} 
@@ -370,7 +373,7 @@ export default function VoterDashboard() {
                                           Student ID: <span className="font-medium">{candidate.userId.studentId}</span>
                                         </p>
                                         {candidate.motto && (
-                                          <p className="text-sm text-gray-500 italic mt-1">"{candidate.motto}"</p>
+                                          <p className="text-sm text-gray-500 italic mt-1">&quot;{candidate.motto}&quot;</p>
                                         )}
                                       </div>
                                     </div>

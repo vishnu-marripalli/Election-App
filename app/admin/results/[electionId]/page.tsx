@@ -131,7 +131,7 @@ export default function ElectionResults({ params }: { params: { electionId: stri
                           </div>
                           <h3 className="text-xl font-bold mb-1">{winner.name}</h3>
                           <p className="text-gray-600 mb-2">ID: {winner.studentId} • Class: {winner.class}</p>
-                          <p className="text-sm italic text-gray-700 mb-3">"{winner.motto}"</p>
+                          <p className="text-sm italic text-gray-700 mb-3">&quot;{winner.motto}&quot;</p>
                           <div className="text-3xl font-bold text-yellow-600">{winner.votes} votes</div>
                           <div className="text-sm text-gray-600">
                             {totalVotes > 0 ? Math.round((winner.votes / totalVotes) * 100) : 0}% of total votes
@@ -201,7 +201,7 @@ export default function ElectionResults({ params }: { params: { electionId: stri
                               <p className="text-sm text-gray-600">
                                 ID: {candidate.studentId} • Class: {candidate.class}
                               </p>
-                              <p className="text-sm italic text-gray-700">"{candidate.motto}"</p>
+                              <p className="text-sm italic text-gray-700">&quot;{candidate.motto}&quot;</p>
                             </div>
                           </div>
                           <div className="text-right">

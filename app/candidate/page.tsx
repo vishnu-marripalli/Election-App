@@ -240,7 +240,7 @@ export default function CandidateDashboard() {
               <CardContent className="text-center py-12">
                 <Users className="h-16 w-16 text-gray-400 mx-auto mb-4" />
                 <h3 className="text-lg font-medium text-gray-900 mb-2">No Applications Yet</h3>
-                <p className="text-gray-600 mb-4">You haven't applied for any positions yet</p>
+                <p className="text-gray-600 mb-4">You haven&#39;t applied for any positions yet</p>
                 <Button onClick={() => setShowForm(true)}>
                   <Plus className="h-4 w-4 mr-2" />
                   Apply Now
@@ -271,7 +271,7 @@ export default function CandidateDashboard() {
                     <div className="space-y-3">
                       <div>
                         <p className="text-sm font-medium text-gray-600">Motto:</p>
-                        <p className="italic text-blue-700">"{application.motto}"</p>
+                        <p className="italic text-blue-700">&quot;{application.motto}&quot;</p>
                       </div>
                       <div>
                         <p className="text-sm font-medium text-gray-600">Manifesto:</p>
@@ -284,7 +284,7 @@ export default function CandidateDashboard() {
                         <Alert className="border-green-200 bg-green-50">
                           <CheckCircle className="h-4 w-4 text-green-600" />
                           <AlertDescription className="text-green-800">
-                            Your application has been approved! You're now officially running for {application.position}.
+                            Your application has been approved! You&#39;re now officially running for {application.position}.
                           </AlertDescription>
                         </Alert>
                       ) : (
