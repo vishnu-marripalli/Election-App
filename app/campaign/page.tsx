@@ -11,7 +11,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 const candidates = [
   // Head Boy
-  { id: 1, name: "Padakanti Rudransh Reddy", position: "Head Boy", campaign: "Dedicated to lead with responsibility and vision.", photo: "/rudhransh.jpg" },
+  { id: 1, name: "Padkanti Rudransh Reddy", position: "Head Boy", campaign: "Dedicated to lead with responsibility and vision.", photo: "/rudhransh.jpg" },
   { id: 2, name: "Nagampeta Swajith Reddy", position: "Head Boy", campaign: "A leader who listens and acts.", photo: "/swajith.jpg" },
   { id: 3, name: "Gaddam Shiva", position: "Head Boy", campaign: "Together towards excellence.", photo: "/shiva.jpg" },
 
