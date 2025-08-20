@@ -21,7 +21,7 @@ export async function POST(req: Request) {
       role: "voter",
       isApproved: true,
     }));
-    await User.collection.dropIndex("email_1");
+    // await User.collection.dropIndex("email_1");
 
 
     await User.insertMany(formattedVoters);

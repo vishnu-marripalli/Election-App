@@ -26,6 +26,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import io, { Socket } from "socket.io-client";
 
 interface Voter {
   _id?: string;
@@ -34,6 +35,7 @@ interface Voter {
   studentId: string;
 }
 
+let socket: Socket;
 export default function VoterPage() {
   const [voters, setVoters] = useState<Record<string, Voter[]>>({});
   const router = useRouter();
@@ -69,6 +71,23 @@ export default function VoterPage() {
 
     window.location.reload();
   };
+useEffect(() => {
+    socket = io("http://192.168.29.110:4000");
+    // socket = io("http://192.168.31.143:4000");
+
+    socket.on("connect", () => {
+      console.log("Officer connected:", socket.id);
+    });
+
+    return () => {
+      socket.disconnect();
+    };
+  }, []);
+
+  const unlockBooth = (boothId: string,studentId:string) => {
+    if (!studentId) return alert("Enter student ID first!");
+    socket.emit("unlock-booth", { boothId, studentId });
+    };
 
   return (
     <div className="p-8 bg-gray-50 min-h-screen">
@@ -154,11 +173,25 @@ export default function VoterPage() {
                               <TableCell className="text-center">
                                 <Button
                                   size="sm"
+                                  className="mx-2"
                                   onClick={() =>
-                                    router.push(`/voter/${voter._id}`)
+                                    // router.push(`/voter/${voter._id}`)
+                                    unlockBooth("booth1", voter._id ?? "")
+                                    
                                   }
                                 >
-                                  View Voter
+                                  Booth 1
+                                </Button>
+                                 <Button
+                                 className="mx-2"
+                                  size="sm"
+                                  onClick={() =>
+                                    // router.push(`/voter/${voter._id}`)
+                                    unlockBooth("booth2", voter._id ?? "")
+                                    
+                                  }
+                                >
+                                  Booth 2
                                 </Button>
                               </TableCell>
                             </TableRow>

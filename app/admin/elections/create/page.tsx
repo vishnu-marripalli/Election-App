@@ -28,7 +28,7 @@ export default function CreateElection() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const availableClasses = ['9', '10', '11', '12'];
+  const availableClasses = ['3','4','5','6','7' ,'8','9', '10','T'];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

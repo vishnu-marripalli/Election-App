@@ -199,7 +199,7 @@ const [electionCandidates, setElectionCandidates] = useState<
                 </div>
                 <div className="flex items-center gap-2">
                   <UserCheck className="h-4 w-4 text-green-500" />
-                  <span className="text-sm font-medium text-gray-700">Welcome, {voterData?.name}</span>
+                  <span className="text-xl font-medium text-gray-700">Welcome, {voterData?.name}</span>
                   <Badge className="bg-blue-100 text-blue-700 text-xs px-2 py-1">
                     {voterData?.class}
                   </Badge>
