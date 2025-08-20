@@ -11,33 +11,34 @@ import "slick-carousel/slick/slick-theme.css";
 
 const candidates = [
   // Head Boy
-  { id: 1, name: "Padakanti Rudransh Reddy", position: "Head Boy", campaign: "Dedicated to lead with responsibility and vision.", photo: "/candidates/rudransh.jpg" },
-  { id: 2, name: "Nagampeta Swajith Reddy", position: "Head Boy", campaign: "A leader who listens and acts.", photo: "/candidates/srujith.jpg" },
-  { id: 3, name: "Gaddam Shiva", position: "Head Boy", campaign: "Together towards excellence.", photo: "/candidates/shiva.jpg" },
+  { id: 1, name: "Padakanti Rudransh Reddy", position: "Head Boy", campaign: "Dedicated to lead with responsibility and vision.", photo: "/rudhransh.jpg" },
+  { id: 2, name: "Nagampeta Swajith Reddy", position: "Head Boy", campaign: "A leader who listens and acts.", photo: "/swajith.jpg" },
+  { id: 3, name: "Gaddam Shiva", position: "Head Boy", campaign: "Together towards excellence.", photo: "/shiva.jpg" },
 
   // Head Girl
-  { id: 4, name: "Machharla Bindhu Reddy", position: "Head Girl", campaign: "Leadership with kindness and courage.", photo: "/candidates/bindu.jpg" },
-  { id: 5, name: "Gollapalli Harshini", position: "Head Girl", campaign: "Your voice, my responsibility.", photo: "/candidates/harshini.jpg" },
+  { id: 4, name: "Maccharla Bindhu Reddy", position: "Head Girl", campaign: "Leadership with kindness and courage.", photo: "/bindhu.jpg" },
+  { id: 5, name: "Gollapalli Harshini", position: "Head Girl", campaign: "Your voice, my responsibility.", photo: "/harshini.jpg" },
 
   // Cultural Coordinator
-  { id: 6, name: "Ankannagari Varadhan", position: "Cultural Coordinator", campaign: "Creativity and culture for all.", photo: "/candidates/varadhan.jpg" },
-  { id: 7, name: "Cheelam Yashwanth", position: "Cultural Coordinator", campaign: "Culture unites us together.", photo: "/candidates/yashwanth.jpg" },
-  { id: 8, name: "Puchula Samanvi", position: "Cultural Coordinator", campaign: "Bringing vibrance and joy to school life.", photo: "/candidates/samvni.jpg" },
-  { id: 9, name: "Yerra Sathwika", position: "Cultural Coordinator", campaign: "Celebrating diversity and talent.", photo: "/candidates/sathvika.jpg" },
+  { id: 6, name: "Ankannagari Vardhan", position: "Cultural Coordinator", campaign: "Creativity and culture for all.", photo: "/vardhan.jpg" },
+  { id: 7, name: "Cheelam Yashwanth", position: "Cultural Coordinator", campaign: "Culture unites us together.", photo: "/yash.jpg" },
+  { id: 8, name: "Puchula Samanvi", position: "Cultural Coordinator", campaign: "Bringing vibrance and joy to school life.", photo: "/samanvi.jpg" },
+  { id: 9, name: "Yerrani Sathwika", position: "Cultural Coordinator", campaign: "Celebrating diversity and talent.", photo: "/sathwika.jpg" },
 
   // Sports Captain (Boys)
-  { id: 10, name: "Manga Ajay", position: "Sports Captain (Boys)", campaign: "Discipline, dedication, and sportsmanship.", photo: "/candidates/ajay.jpg" },
-  { id: 11, name: "Sama Reshwanth Reddy", position: "Sports Captain (Boys)", campaign: "For fair play and teamwork.", photo: "/candidates/reshwanth.jpg" },
-  { id: 12, name: "Ungarala Rohith Roshan", position: "Sports Captain (Boys)", campaign: "Passion for sports, power for progress.", photo: "/candidates/roshan.jpg" },
-  { id: 13, name: "Rajula Ritesh Reddy", position: "Sports Captain (Boys)", campaign: "Strength and spirit on the field.", photo: "/candidates/ritesh.jpg" },
+  { id: 10, name: "Manga Ajay", position: "Sports Captain (Boys)", campaign: "Discipline, dedication, and sportsmanship.", photo: "/ajay.jpg" },
+  { id: 11, name: "Sama Reshwanth Reddy", position: "Sports Captain (Boys)", campaign: "For fair play and teamwork.", photo: "/reshwanth.jpg" },
+  { id: 12, name: "Ungarala Rohith Roshan", position: "Sports Captain (Boys)", campaign: "Passion for sports, power for progress.", photo: "/rohith.jpg" },
+  { id: 13, name: "Rajula Ritesh Reddy", position: "Sports Captain (Boys)", campaign: "Strength and spirit on the field.", photo: "/ritesh.jpg" },
 
   // Sports Captain (Girls)
-  { id: 14, name: "Dhanarekula Rahithya", position: "Sports Captain (Girls)", campaign: "Encouraging girls in sports with confidence.", photo: "/candidates/rahithya.jpg" },
-  { id: 15, name: "Pandhena Arankitha", position: "Sports Captain (Girls)", campaign: "Unity and strength in sports.", photo: "/candidates/arankitha.jpg" },
-  { id: 16, name: "Mudavath Geethika", position: "Sports Captain (Girls)", campaign: "Play fair, play strong, play together.", photo: "/candidates/geethika.jpg" },
+  { id: 14, name: "Dhanrekkala Rahithya", position: "Sports Captain (Girls)", campaign: "Encouraging girls in sports with confidence.", photo: "/rahitya.jpg" },
+  { id: 15, name: "Pandena Avankitha", position: "Sports Captain (Girls)", campaign: "Unity and strength in sports.", photo: "/avanthika.jpg" },
+  { id: 16, name: "Mudavath Geethika", position: "Sports Captain (Girls)", campaign: "Play fair, play strong, play together.", photo: "/geethika.jpg" },
 ];
 
 export default function CampaignPage() {
+
   const settings = {
     dots: false,
     infinite: true,
@@ -45,18 +46,18 @@ export default function CampaignPage() {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 8000,
+    autoplaySpeed: 7000,
     fade: true,
     pauseOnHover: false,
   };
-// Group candidates by position (role)
-const groupedCandidates = candidates.reduce((acc, candidate) => {
-  if (!acc[candidate.position]) {
-    acc[candidate.position] = [];
-  }
-  acc[candidate.position].push(candidate);
-  return acc;
-}, {} as Record<string, typeof candidates>);
+  // Group candidates by position (role)
+  const groupedCandidates = candidates.reduce((acc, candidate) => {
+    if (!acc[candidate.position]) {
+      acc[candidate.position] = [];
+    }
+    acc[candidate.position].push(candidate);
+    return acc;
+  }, {} as Record<string, typeof candidates>);
 
   return (
     <div className="h-screen w-full bg-gray-50 flex flex-col overflow-hidden">
@@ -74,45 +75,57 @@ const groupedCandidates = candidates.reduce((acc, candidate) => {
         </h1>
       </header>
 
-    <main className="flex-1 flex items-center justify-center bg-gradient-to-br from-blue-50 to-gray-100">
-  <div className="w-[90%] max-w-6xl">
-    <Slider {...settings}>
-      {Object.entries(groupedCandidates).map(([role, roleCandidates]) => (
-        <div key={role} className="relative">
-          <h2 className="text-4xl font-bold text-center text-blue-700 mb-8">
-            {role}
-          </h2>
-
-          {/* Grid of candidates */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 p-3 gap-10">
-            {roleCandidates.map((candidate) => (
-              <motion.div
-                key={candidate.id}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6 }}
-                className="flex flex-col items-center text-center p-6 bg-white rounded-2xl shadow-lg"
-              >
-                {/* Candidate Image (optional) */}
-                {/* <Image
-                  src={candidate.photo}
-                  alt={candidate.name}
-                  width={200}
-                  height={200}
-                  className="rounded-2xl shadow-lg object-cover mb-4"
-                /> */}
-
-                <h3 className="text-2xl font-bold text-gray-800">{candidate.name}</h3>
-                <p className="mt-2 text-lg text-gray-600 italic">“{candidate.campaign}”</p>
-              </motion.div>
+      {/* Slider */}
+      <main className="flex-1 flex items-center justify-center bg-gradient-to-br from-blue-50 to-gray-100">
+        <div className="w-[85%] max-w-5xl">
+          <Slider {...settings}>
+            {candidates.map((candidate) => (
+              <div key={candidate.id} className="relative flex justify-center">
+                {/* Candidate Image */}
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 1 }}
+                  className="flex flex-col items-center justify-center text-center p-6"
+                >
+                  <Image
+                    src={candidate.photo}
+                    alt={candidate.name}
+                    width={200}
+                    height={200}
+                    className="rounded-3xl shadow-2xl object-cover mb-6 border-4 border-blue-200"
+                  />
+                  {/* Text */}
+                  <motion.h2
+                    initial={{ y: 30, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.8 }}
+                    className="text-5xl font-extrabold text-gray-800"
+                  >
+                    {candidate.name}
+                  </motion.h2>
+                  <motion.h3
+                    initial={{ y: 30, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 1, delay: 0.3 }}
+                    className="text-3xl text-blue-700 mt-2 font-semibold"
+                  >
+                    {candidate.position}
+                  </motion.h3>
+                  <motion.p
+                    initial={{ y: 30, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 1, delay: 0.6 }}
+                    className="mt-6 text-2xl text-gray-600 italic max-w-3xl"
+                  >
+                    “{candidate.campaign}”
+                  </motion.p>
+                </motion.div>
+              </div>
             ))}
-          </div>
+          </Slider>
         </div>
-      ))}
-    </Slider>
-  </div>
-</main>
-
+      </main>
 
       {/* Footer ticker */}
       <footer className="bg-blue-900 text-white py-3 text-lg font-medium overflow-hidden relative">
