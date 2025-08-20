@@ -28,7 +28,7 @@ const candidates = [
   // Sports Captain (Boys)
   { id: 10, name: "Manga Ajay", position: "Sports Captain (Boys)", campaign: "Discipline, dedication, and sportsmanship.", photo: "/ajay.jpg" },
   { id: 11, name: "Sama Reshwanth Reddy", position: "Sports Captain (Boys)", campaign: "For fair play and teamwork.", photo: "/reshwanth.jpg" },
-  { id: 12, name: "Ungarala Rohith Roshan", position: "Sports Captain (Boys)", campaign: "Passion for sports, power for progress.", photo: "/rohith.jpg" },
+  { id: 12, name: "Ungarla Rohith Roshan", position: "Sports Captain (Boys)", campaign: "Passion for sports, power for progress.", photo: "/rohith.jpg" },
   { id: 13, name: "Rajula Ritesh Reddy", position: "Sports Captain (Boys)", campaign: "Strength and spirit on the field.", photo: "/ritesh.jpg" },
 
   // Sports Captain (Girls)
