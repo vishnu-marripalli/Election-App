@@ -51,6 +51,7 @@ export default function VoterPage() {
           grouped[voter.class].push(voter);
         });
         setVoters(grouped);
+        console.log("Voters fetched:", grouped);
       });
   }, []);
 
@@ -72,8 +73,9 @@ export default function VoterPage() {
     window.location.reload();
   };
 useEffect(() => {
-    socket = io("http://192.168.29.110:4000");
+    // socket = io("http://192.168.29.110:4000");
     // socket = io("http://192.168.31.143:4000");
+    socket = io("https://election-backend-tudq.onrender.com");
 
     socket.on("connect", () => {
       console.log("Officer connected:", socket.id);

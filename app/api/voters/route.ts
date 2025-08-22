@@ -9,7 +9,7 @@ export async function GET() {
   try {
     await dbConnect();
     const voters = await User.find({ role: "voter" }).select("-password");
-
+// console.log("Fetched voters:", voters);
     return NextResponse.json(voters, { status: 200 });
   } catch (error) {
     console.error("Error fetching voters:", error);

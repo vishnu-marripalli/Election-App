@@ -70,7 +70,8 @@ const [electionCandidates, setElectionCandidates] = useState<
 >({});
   useEffect(() => {
     // socket = io("http://192.168.31.143:4000");
-    socket = io("http://192.168.29.110:4000");
+    // socket = io("http://192.168.29.110:4000");
+    socket = io("https://election-backend-tudq.onrender.com");
 
     socket.on("connect", () => {
       console.log("Booth connected:", socket.id);
@@ -103,6 +104,8 @@ useEffect(() => {
     setVoterData(null);
     setVotedPositions({});
     setVoting({});
+        window.scrollTo({ top: 0, behavior: "smooth" }); // scroll up
+
     return;
   }
 
@@ -110,6 +113,8 @@ useEffect(() => {
   setVotedPositions({});
   setVoting({});
   fetchVoter();
+      window.scrollTo({ top: 0, behavior: "smooth" }); // scroll up
+
 }, [studentId]);
 
 // 🎶 Play buzzer sound
@@ -124,7 +129,7 @@ useEffect(() => {
     elections.forEach((election) => {
       const totalPositions = election.positions.length;
       const votedCount = (votedPositions[election._id] || []).length;
-      console.log(`Election ${election.title} - Total Positions: ${totalPositions}, Voted Count: ${votedCount}`);
+      // console.log(`Election ${election.title} - Total Positions: ${totalPositions}, Voted Count: ${votedCount}`);
       if (totalPositions > 0 && votedCount === totalPositions) {
         playBuzzer();
       }

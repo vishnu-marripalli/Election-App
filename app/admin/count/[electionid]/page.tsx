@@ -19,7 +19,7 @@ export default function VoterCountUI() {
       const interval = setInterval(() => {
         console.log("⏳ Auto-refreshing votes for electionid:", electionid);
         fetchVotes(electionid);
-      }, 2 * 60 * 1000); // 2 minutes = 120,000ms
+      }, 1* 60 * 1000); // 2 minutes = 120,000ms
 
       return () => clearInterval(interval); // cleanup on unmount
     }
@@ -73,7 +73,7 @@ export default function VoterCountUI() {
         {/* Left Photo */}
         <div className="hidden lg:block w-1/4">
           <Image
-            src="/students-voting.jpg"
+            src="/election (1).jpg"
             alt="Students Voting"
             width={400}
             height={500}
@@ -106,7 +106,7 @@ export default function VoterCountUI() {
         {/* Right Photo */}
         <div className="hidden lg:block w-1/4">
           <Image
-            src="/school-event.jpg"
+            src="/election (2).jpg"
             alt="School Event"
             width={400}
             height={500}
