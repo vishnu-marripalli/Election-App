@@ -53,7 +53,7 @@ let socket: Socket;
 
 
 export default function Booth() {
-    const  boothId  = "booth3";
+  const  boothId  = "booth3";
   const [unlocked, setUnlocked] = useState(true);
   const [studentId, setStudentId] = useState<string | null>("Khs-01-A1-01");
 const { data: session, status } = useSession();

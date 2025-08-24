@@ -8,8 +8,14 @@ export async function GET() {
   try {
     await dbConnect();
     const elections = await Election.find().populate('createdBy', 'name').sort({ createdAt: -1 });
-    return NextResponse.json(elections);
-  } catch (error) {
+return NextResponse.json(elections, {
+      status: 200,
+      headers: {
+        "Access-Control-Allow-Origin": "*", // allow all origins
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type",
+      },
+    });  } catch (error) {
     return NextResponse.json({ message: 'Failed to fetch elections' }, { status: 500 });
   }
 }

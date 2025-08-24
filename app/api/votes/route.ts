@@ -5,7 +5,15 @@ import dbConnect from '@/lib/mongodb';
 import Vote from '@/models/Vote';
 import Candidate from '@/models/Candidate';
 import User from '@/models/User';
-
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*", // or your frontend URL
+  "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type, Authorization",
+};
+export async function OPTIONS() {
+  // Respond to preflight requests
+  return NextResponse.json("OK", { status: 200, headers: corsHeaders });
+}
 export async function GET(req: Request) {
   try {
     await dbConnect();
@@ -16,7 +24,7 @@ export async function GET(req: Request) {
     if (!electionId) {
       return NextResponse.json(
         { success: false, message: "Election ID is required" },
-        { status: 400 }
+        { status: 400, headers: corsHeaders }
       );
     }
 
@@ -24,12 +32,12 @@ export async function GET(req: Request) {
 
     return NextResponse.json(
       { success: true, electionId, totalVoters: count },
-      { status: 200 }
+      { status: 200, headers: corsHeaders }
     );
   } catch (error: any) {
     return NextResponse.json(
       { success: false, message: error.message },
-      { status: 500 }
+      { status: 500, headers: corsHeaders }
     );
   }
 }
@@ -77,9 +85,10 @@ export async function POST(req: NextRequest) {
       { $set: { [`hasVoted.${electionId}.${position}`]: true } }
     );
 
-    return NextResponse.json({ message: 'Vote cast successfully' }, { status: 201 });
+    return NextResponse.json({ message: 'Vote cast successfully' }, { status: 201, headers: corsHeaders });
   } catch (error) {
     console.error('Vote error:', error);
     return NextResponse.json({ message: 'Failed to cast vote' }, { status: 500 });
   }
 }
+

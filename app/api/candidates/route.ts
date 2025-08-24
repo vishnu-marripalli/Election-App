@@ -21,7 +21,11 @@ export async function GET(req: NextRequest) {
       .populate('electionId', 'title')
       .sort({ createdAt: -1 });
 
-    return NextResponse.json(candidates);
+    return NextResponse.json(candidates, { status: 200, headers: {
+        "Access-Control-Allow-Origin": "*", // allow all origins
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type",
+      },});
   } catch (error) {
     return NextResponse.json({ message: 'Failed to fetch candidates' }, { status: 500 });
   }

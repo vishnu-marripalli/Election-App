@@ -24,7 +24,11 @@ export async function GET(
       return NextResponse.json({ error: "User not found" }, { status: 404 });
     }
 
-    return NextResponse.json(user, { status: 200 });
+    return NextResponse.json(user, { status: 200, headers: {
+        "Access-Control-Allow-Origin": "*", // allow all origins
+        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+        "Access-Control-Allow-Headers": "Content-Type",
+      }, });
   } catch (error) {
     console.error("Error fetching user:", error);
     return NextResponse.json({ error: "Server error" }, { status: 500 });
