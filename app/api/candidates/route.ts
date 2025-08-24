@@ -3,7 +3,15 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 import dbConnect from '@/lib/mongodb';
 import Candidate from '@/models/Candidate';
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+};
 
+export async function OPTIONS() {
+  return NextResponse.json("OK", { status: 200, headers: corsHeaders });
+}
 export async function GET(req: NextRequest) {
   try {
     const { searchParams } = new URL(req.url);
@@ -21,11 +29,7 @@ export async function GET(req: NextRequest) {
       .populate('electionId', 'title')
       .sort({ createdAt: -1 });
 
-    return NextResponse.json(candidates, { status: 200, headers: {
-        "Access-Control-Allow-Origin": "*", // allow all origins
-        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-        "Access-Control-Allow-Headers": "Content-Type",
-      },});
+    return NextResponse.json(candidates, { status: 200, headers: corsHeaders});
   } catch (error) {
     return NextResponse.json({ message: 'Failed to fetch candidates' }, { status: 500 });
   }
